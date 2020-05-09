@@ -3,7 +3,7 @@
 # PATH="$PATH":"<ffmpegのbinフォルダへのパス>"
 
 # Check commands
-if ! type ffmpeg.exe > /dev/null 2>&1; then
+if ! type ffmpeg > /dev/null 2>&1; then
     echo "Error: Cannot find ffmpeg"
     exit 1
 fi
@@ -71,7 +71,7 @@ for f in $INPUT_DIR/*.pp[ts]x; do
     # Compress audio files
     for a in "$pptworkdir"/ppt/media/*.m4a; do
         m4afname="${a##*/}"
-        ffmpeg.exe -i "$a" -ab $BITRATE "$WORK_DIR/$m4afname"
+        ffmpeg -i "$a" -ab $BITRATE "$WORK_DIR/$m4afname"
         mv "$WORK_DIR/$m4afname" "$a"
     done
 
@@ -80,5 +80,6 @@ for f in $INPUT_DIR/*.pp[ts]x; do
     mv "$OUTPUT_DIR/$pptfbase.zip" "$OUTPUT_DIR/$pptfname"
 
     # Remove temoporary files/folders
+    rm "$zipfname"
     rm -rf "$pptworkdir"
 done
