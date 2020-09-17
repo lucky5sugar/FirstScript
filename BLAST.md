@@ -8,9 +8,9 @@
 
 ## 1. 配列データダウンロード
 `module load sratoolkit`  
-fastqファイルダウンロード(sraも同時にダウンロードされる)  
-`fasterq-dump <accession>`  
-`fasterq-dump SRR10539959`  
+fastqファイルダウンロード(sraも同時にダウンロードされる) ．fasterq-dumpの方が早いが，conda installする必要がある．  
+`fastq-dump <accession>`  
+`fastq-dump SRR10539959`  
 
 （圧縮ファイルであるsraファイルをダウンロードしてもいい）  
 `prefetch SRR10539959`  
